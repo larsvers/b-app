@@ -17,3 +17,10 @@ body {
 body * {
   box-sizing: border-box;
 }
+
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  outline: 0;
+}
