@@ -13,7 +13,7 @@ const scene = new THREE.Scene();
 const textureLoader = new THREE.TextureLoader();
 const bakedCinemaTexture = textureLoader.load("../assets/cinema-bake.jpg");
 bakedCinemaTexture.flipY = false;
-bakedCinemaTexture.encoding = THREE.sRGBEncoding;
+bakedCinemaTexture.colorSpace = THREE.SRGBColorSpace;
 
 // Materials
 const bakedCinemaMaterial = new THREE.MeshBasicMaterial({ map: bakedCinemaTexture });
@@ -28,9 +28,6 @@ gltfLoader.load("../assets/cinama-merged-draco.glb", gltf => {
   console.log(gltf)
   gltf.scene.children[0].material = bakedCinemaMaterial;
   scene.add(gltf.scene.children[0]);
-
-
-
 });
 
 // Sizes
@@ -58,7 +55,7 @@ const renderer = new THREE.WebGL1Renderer({
 
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(pixelRatio);
-renderer.outputEncoding = THREE.sRGBEncoding;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.setClearColor('#ffffff');
 
 function tick() {
